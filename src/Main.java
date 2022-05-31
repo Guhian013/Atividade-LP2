@@ -1,3 +1,5 @@
+
+
 public class Main {
     public static void main(String[] args) throws Exception {
         Lista<Integer> l1 = new Lista<>();
@@ -111,5 +113,16 @@ public class Main {
         l3.adicionarElemento(5);
 
         System.out.println(l1.ehIgual(l3));
+
+        System.out.println("****************************");
+
+        ListaInteger l = new ListaInteger();
+        
+        l.adicionarElemento(1);
+        l.adicionarElemento(2);
+        l.encontrarElementoMap(0);
+        l.listarElementosInterator();
+        
+
     }
 }

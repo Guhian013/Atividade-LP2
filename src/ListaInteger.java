@@ -14,9 +14,18 @@ public class ListaInteger {
     public void adicionarElementoPorPosicao(int posicao, Integer elemento) {
         this.elementos.add(posicao, elemento);
     }
+    
 
     public List<Integer> listarElementos() {
         return this.elementos;
+    }
+
+    public void listarElementosInterator() {
+        Iterator<Integer> it = this.elementos.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        };
+
     }
 
     public void removerElemento(Integer elemento) {
@@ -29,8 +38,8 @@ public class ListaInteger {
 
     public void ordenar() {
         this.elementos.sort(null);
-    }  
-
+    }
+    
     public Integer primeiroElemento() {
         return this.elementos.get(0);
     } 
@@ -41,6 +50,16 @@ public class ListaInteger {
 
     public Integer encontrarElemento(Integer elemento) {
         return this.elementos.get(this.elementos.indexOf(elemento));
+    }
+
+    public void encontrarElementoMap(int posicao) {
+        Map<Integer, Integer> mapa = new HashMap<>();
+
+        for (int i = 0; i < this.tamanho(); i++) {
+            mapa.put(i, this.encontrarElementoPorPosicao(i));
+        }
+
+        System.out.println(mapa.get(posicao));
     }
 
     public Integer encontrarElementoPorPosicao(int indice) {
@@ -59,7 +78,17 @@ public class ListaInteger {
         return this.elementos.contains(indice);
     }
 
+    public Boolean existe(Collection<Integer> colecao, Integer elemento) {
+        return colecao.contains(elemento);
+    }
+    
+
     public boolean ehIgual(ListaInteger li1) {
         return this.elementos.equals(li1.elementos);
+    }
+
+    public int tamanho() {
+        Collection<Integer> colecao = this.elementos;
+        return colecao.size();
     }
 }
